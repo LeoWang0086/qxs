@@ -1,0 +1,17 @@
+{
+  "added_tokens_decoder": {},
+  "auto_map": {
+    "AutoTokenizer": [
+      "tokenization_chatglm.ChatGLMTokenizer",
+      null
+    ]
+  },
+  "chat_template": "{% if messages[0]['role'] == 'system' %}{% set system_message = messages[0]['content'] %}{% endif %}{% if system_message is defined %}{{ system_message + '\n' }}{% endif %}{% for message in messages %}{% set content = message['content'] %}{% if message['role'] == 'user' %}{{ 'Human: ' + content + '\nAssistant:' }}{% elif message['role'] == 'assistant' %}{{ content + '</s>' + '\n' }}{% endif %}{% endfor %}",
+  "clean_up_tokenization_spaces": false,
+  "do_lower_case": false,
+  "model_max_length": 1000000000000000019884624838656,
+  "padding_side": "left",
+  "remove_space": false,
+  "split_special_tokens": false,
+  "tokenizer_class": "ChatGLMTokenizer"
+}
